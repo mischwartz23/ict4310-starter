@@ -1,0 +1,14 @@
+{
+  "name": "helpers",
+  "version": "1.0.0",
+  "description": "Small collection of examples corresponding to the Python examples, but in JavaScript",
+  "main": "simple_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}

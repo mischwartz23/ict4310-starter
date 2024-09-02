@@ -1,0 +1,50 @@
+<!doctype html>
+<!--
+  - Author: Instructor
+  - The "action" attributes in the form determine what server URL to send to.
+  - The URL has the following parts:
+    a) the protocol (http or https) followed by ://
+    b) the host (usually an FQDN, but here just localhost)
+    c) the (option) port number. The default is 80 for http and 443 for https
+    d) The path, representing the resource requested on that host's web server.
+  - All these can be modified to meet the caller's need.
+-->
+<html>
+  <head>
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>Form</h1>
+    <p>
+      This is a web page with a form that will say hello to you if it works.
+    </p>
+    <h2>GET</h2>
+    <p>
+      This form submits a "GET" request to the server. All this does is ask
+      for this page back again but puts the form parameter in the URL.
+      Try entering a name in the box and clicking the "GET Request" button.
+      Then look in the URL and you'll see it says "form.html?name=value"
+      for whatever "value" you entered.
+    </p>
+    <p>
+      <form method="GET" action="http://localhost:8000/form">
+	       <input type='text' name='name' />
+	       <input type='number' name='number' />
+	       <input type="submit" value="GET Request" />
+      </form>
+    </p>
+    <h2>POST</h2>
+    <p>
+      This form submits a "POST" request to the server. It calls a different page
+      that it just calls "form" and puts the parameters in the body of the request
+      so that you don't see them.
+    </p>
+    <p>
+      <form method="POST" action="http://localhost:8000/form">
+	       <label>Name</label><input type='text' name='name' />
+	       <label>Number</label><input type='number' name='number' />
+	       <input type="submit" value="POST Request" />
+      </form>
+    </p>
+  </body>
+</html>
