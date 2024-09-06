@@ -1,1 +1,5 @@
 **/.DS_Store
+**/*.class
+**/*.pem
+**/*.pyc
+**/node_modules/**
