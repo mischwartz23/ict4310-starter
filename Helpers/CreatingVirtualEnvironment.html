@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Creating a Virtual Environment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  
+<style type="text/css">
+pre { white-space: pre-wrap; }
+bold { font-weight: bold; }
+</style>
+</head>
+
+<body class="f9 b9">
+
+<h4>#Creating a Virtual Environment</h4>
+
+<pre>
+<span class="bold">SCCS3:Helpers %</span> python3 -m venv .venv   # Any name of your choosing       
+</pre>
+  
+<h4>#Activate the virtual environment</h4>
+<pre>
+<span class="bold">SCCS3:Helpers %</span> source .venv/activate
+</pre>
+
+<h4>#Install dependencies using `pip`</h4>
+<pre>
+<span class="bold">SCCS3:Helpers %</span> (.venv) <span class="bold">SCCS3:Helpers %</span> pip install requests    
+
+Collecting requests
+  Using cached requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting charset-normalizer&lt;4,&gt;=2 (from requests)
+  Using cached charset_normalizer-3.3.2-cp312-cp312-macosx_10_9_x86_64.whl.metadata (33 kB)
+Collecting idna&lt;4,&gt;=2.5 (from requests)
+  Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3&lt;3,&gt;=1.21.1 (from requests)
+  Using cached urllib3-2.2.3-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi&gt;=2017.4.17 (from requests)
+  Using cached certifi-2024.8.30-py3-none-any.whl.metadata (2.2 kB)
+Using cached requests-2.32.3-py3-none-any.whl (64 kB)
+Using cached certifi-2024.8.30-py3-none-any.whl (167 kB)
+Using cached charset_normalizer-3.3.2-cp312-cp312-macosx_10_9_x86_64.whl (122 kB)
+Using cached idna-3.10-py3-none-any.whl (70 kB)
+Using cached urllib3-2.2.3-py3-none-any.whl (126 kB)
+Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests
+Successfully installed certifi-2024.8.30 charset-normalizer-3.3.2 idna-3.10 requests-2.32.3 urllib3-2.2.3
+</pre>
+  
+<h4>#Start the server in a Terminal window</h4>
+  <pre>
+<span class="bold">SCCS3:Helpers %</span> (.venv) python logging_server.py
+
+INFO:root:Starting httpd...on port 8000
+</pre>
+  
+<h4>#Run the client in its own terminal window (after activating it)</h4>
+<pre>
+<span class="bold">SCCS3:Helpers %</span> (.venv) python get.py
+
+INFO:root:GET request,
+Path: /test?address=Denver
+Headers:
+Host: localhost:8000
+User-Agent: python-requests/2.32.3
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+
+
+
+127.0.0.1 - - [24/Sep/2024 16:51:18] "GET /test?address=Denver HTTP/1.1" 200 -
+Data: GET request for /test?address=Denver
+</pre>
+  
+<h4>#For SSL, create a self-signed certificate</h4>
+<span class="bold">SCCS3:Helpers %</span> (.venv) ./create_pem.sh
+
+<h4>#You can run the SSL server</h4>
+<pre>
+<span class="bold">SCCS3:Helpers %</span> (.venv) python ssl_server.py
+
+<span class="bold">SCCS3:Helpers %</span> (.venv) curl -k https://localhost:4443//form.html
+</pre>
+<h4>#Deactivate the virtual environment</h4>
+  <pre>
+<span class="bold">SCCS3:Helpers %</span> (.venv) deactivate
+
+<span class="bold">SCCS3:Helpers %</span> 
+</pre>
+</body>
+</html>

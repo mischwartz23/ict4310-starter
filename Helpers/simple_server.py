@@ -90,7 +90,7 @@ def run(server_class=HTTPServer, handler_class=HTTPRequestHandler, port=8000):
     logging.basicConfig(level=logging.INFO)
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    logging.info('Starting httpd...\n')
+    logging.info('Starting httpd...on port %d\n', port)
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
